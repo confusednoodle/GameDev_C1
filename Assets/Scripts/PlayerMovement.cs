@@ -7,16 +7,21 @@ public class PlayerMovement : MonoBehaviour
     //movement
     [SerializeField] float speed = 5f;
 
-    //single laser
+    //single laser 
     public LaserBehaviour laserPrefab;
     public Transform spawnPosition;
     public AudioSource laserSound;
 
-    //triple laser
+    //triple laser 
     public Transform spawnPosition1;
     public Transform spawnPosition2;
     public Transform spawnPosition3;
     public AudioSource TripleLaserSound;
+
+    //special attack (2)
+
+    public Transform spawnLaserBomb;
+    public AudioSource laserBombSound;
 
     void Update()
     {
@@ -40,5 +45,11 @@ public class PlayerMovement : MonoBehaviour
             Instantiate(laserPrefab, spawnPosition2.position, transform.rotation);
             Instantiate(laserPrefab, spawnPosition3.position, transform.rotation);
         }
+
+        /*if (Input.GetButtonDown("2"))
+        {
+            laserBombSound.Play();
+            Instantiate(laserPrefab, spawnPosition.position, transform.rotation);
+        }*/
     }
 }
