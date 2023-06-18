@@ -11,12 +11,4 @@ public class LongLaserBehaviour : MonoBehaviour
         scale += 0.5f;
         transform.localScale = new Vector3(1, scale, 1);
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Special Border")
-        {
-            Destroy(gameObject);
-        }
-    }
 }

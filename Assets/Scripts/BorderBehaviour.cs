@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class BorderBehaviour : MonoBehaviour
 {
-    [SerializeField] Collider2D collider1;
-    [SerializeField] Collider2D collider2;
+    [SerializeField] bool isForLongLaser = false;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Laser")
         {
-            Physics2D.IgnoreCollision(collider1, collider2);
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.tag == "LongLaser" && isForLongLaser)
+        {
+            Destroy(collision.gameObject);
         }
     }
 }

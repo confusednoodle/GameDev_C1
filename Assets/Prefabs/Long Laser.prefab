@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2159463886199344563}
   m_Layer: 0
   m_Name: Long Laser
-  m_TagString: Laser
+  m_TagString: LongLaser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,9 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 0.1
-  collider1: {fileID: 2159463886199344564}
-  collider2: {fileID: 3214797478406504170, guid: 764bda558b5816b469f91571861756df, type: 3}
-  collider3: {fileID: 5545623125268865776, guid: cc5aefc7bac891c40bb27474474fb99b, type: 3}
 --- !u!61 &2159463886199344564
 BoxCollider2D:
   m_ObjectHideFlags: 0
