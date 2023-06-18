@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     //single laser 
     public LaserBehaviour laserPrefab;
+    [SerializeField] LongLaserBehaviour longLaserPrefab;
     public Transform spawnPosition;
     public AudioSource laserSound;
     [SerializeField] float fireRate = 0.125f;
@@ -28,9 +29,10 @@ public class PlayerMovement : MonoBehaviour
     bool firstRound = true;
 
     //special attack (2)
-
-    public Transform spawnLaserBomb;
-    public AudioSource laserBombSound;
+    public Transform longSpawnPosition;
+    public AudioSource longLaserSound;
+    [SerializeField] Collider2D collider1;
+    [SerializeField] Collider2D collider2;
 
     private void Start()
     {
@@ -82,11 +84,19 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        /*if (Input.GetButtonDown("2"))
+        if (Input.GetButtonDown("LongLaser"))
         {
-            laserBombSound.Play();
-            Instantiate(laserPrefab, spawnPosition.position, transform.rotation);
-        }*/
+            longLaserSound.Play();
+            Instantiate(longLaserPrefab, longSpawnPosition.position, transform.rotation);            
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Laser")
+        {
+            Physics2D.IgnoreCollision(collider1, collider2);
+        }
     }
 
     void Shoot()
