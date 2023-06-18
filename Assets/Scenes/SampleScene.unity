@@ -1344,6 +1344,10 @@ PrefabInstance:
       propertyPath: collider2
       value:
       objectReference: {fileID: 2159463886199344564, guid: d58372fcf23b2934894bc98529268d09, type: 3}
+    - target: {fileID: 5545623125268865777, guid: cc5aefc7bac891c40bb27474474fb99b, type: 3}
+      propertyPath: longSpawnPosition
+      value:
+      objectReference: {fileID: 1328030447}
     - target: {fileID: 5545623125268865779, guid: cc5aefc7bac891c40bb27474474fb99b, type: 3}
       propertyPath: m_RootOrder
       value: 2
