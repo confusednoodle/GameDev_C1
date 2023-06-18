@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5545623124580460105}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Laser 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5545623124751350139}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Laser 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 5545623125268865782}
   - component: {fileID: 5545623125268865783}
   - component: {fileID: 5545623125268865784}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5545623125286382706}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Single Laser Spawn Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,7 +544,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5545623125761241188}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Laser 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +575,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5545623126021073140}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Triple Laser Spawn Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
