@@ -10,14 +10,14 @@ public class PlayerMovement : MonoBehaviour
     //movement
     [SerializeField] float speed = 5f;
 
-    //single laser 
+    //single laser
     public LaserBehaviour laserPrefab;
     [SerializeField] LongLaserBehaviour longLaserPrefab;
     public Transform spawnPosition;
     public AudioSource laserSound;
     [SerializeField] float fireRate = 0.125f;
 
-    //triple laser 
+    //triple laser
     public Transform spawnPosition1;
     public Transform spawnPosition2;
     public Transform spawnPosition3;
@@ -87,15 +87,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("LongLaser"))
         {
             longLaserSound.Play();
-            Instantiate(longLaserPrefab, longSpawnPosition.position, transform.rotation);            
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Laser")
-        {
-            Physics2D.IgnoreCollision(collider1, collider2);
+            Instantiate(longLaserPrefab, longSpawnPosition.position, transform.rotation);
         }
     }
 
