@@ -57,13 +57,22 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //triple laser
-        if (Input.GetButtonDown("TripleLaser") && !active)
+        if (!active)
         {
-            TripleLaserSound.Play();
-            Instantiate(laserPrefab, spawnPosition1.position, transform.rotation);
-            Instantiate(laserPrefab, spawnPosition2.position, transform.rotation);
-            Instantiate(laserPrefab, spawnPosition3.position, transform.rotation);
-            active = true;
+            if (Input.GetButtonDown("TripleLaser"))
+            {
+                TripleLaserSound.Play();
+                Instantiate(laserPrefab, spawnPosition1.position, transform.rotation);
+                Instantiate(laserPrefab, spawnPosition2.position, transform.rotation);
+                Instantiate(laserPrefab, spawnPosition3.position, transform.rotation);
+                active = true;
+            }
+            else if (Input.GetButtonDown("LongLaser"))
+            {
+                longLaserSound.Play();
+                Instantiate(longLaserPrefab, longSpawnPosition.position, transform.rotation);
+                active = true;
+            }
         }
         else if (active)
         {
@@ -82,12 +91,6 @@ public class PlayerMovement : MonoBehaviour
                 cool.fillAmount = 0f;
                 firstRound = true;
             }
-        }
-
-        if (Input.GetButtonDown("LongLaser"))
-        {
-            longLaserSound.Play();
-            Instantiate(longLaserPrefab, longSpawnPosition.position, transform.rotation);
         }
     }
 
