@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level: 1
   Type: 0
+  speed: 5
   EasySpriteUpAndDown: {fileID: 21300000, guid: bcaad0dc16ed3ed4bb057c64517a7b87, type: 3}
   EasyMediumSpriteUpAndDown: {fileID: 21300000, guid: e461c77260e3f2e45aa9f2c63e19e1ee, type: 3}
   MediumHardSpriteUpAndDown: {fileID: 21300000, guid: 55b571c3f4a07b0419aeed1890966359, type: 3}

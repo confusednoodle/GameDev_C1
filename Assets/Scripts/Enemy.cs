@@ -142,8 +142,16 @@ public class Enemy : MonoBehaviour
     {
         for (; ; )
         {
-            transform.position -= Vector3.down * speed * Time.deltaTime;
-            yield return new
+            for (int i = 0; i < 50; i++)
+            {
+                transform.position += Vector3.down * speed * Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+            for (int i = 0; i < 50; i++)
+            {
+                transform.position += Vector3.up * speed * Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
         }
     }
 
