@@ -142,11 +142,14 @@ public class Enemy : MonoBehaviour
     {
         for (; ; )
         {
+            // Down
             for (int i = 0; i < 50; i++)
             {
                 transform.position += Vector3.down * speed * Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
+
+            // Up
             for (int i = 0; i < 50; i++)
             {
                 transform.position += Vector3.up * speed * Time.deltaTime;
@@ -157,7 +160,42 @@ public class Enemy : MonoBehaviour
 
     IEnumerator MoveHourglass()
     {
-        yield return new WaitForEndOfFrame();
+        float startX = transform.position.x;
+        float startY = transform.position.y;
+        for (; ; )
+        {
+            // left
+            for (int i = 0; i < 25; i++)
+            {
+                transform.position += Vector3.left * speed * Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+
+            // diagonal down
+            float newX = transform.position.x;
+            while (newX < startX)
+            {
+                transform.position += (Vector3.down + Vector3.right) * speed * Time.deltaTime;
+                newX = transform.position.x;
+                yield return new WaitForEndOfFrame();
+            }
+
+            // left again
+            for (int i = 0; i < 25; i++)
+            {
+                transform.position += Vector3.left * speed * Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+
+            // diagonal up
+            newX = transform.position.x;
+            while (newX < startX)
+            {
+                transform.position += (Vector3.up + Vector3.right) * speed * Time.deltaTime;
+                newX = transform.position.x;
+                yield return new WaitForEndOfFrame();
+            }
+        }
     }
 
     IEnumerator MoveSquare()
