@@ -200,6 +200,35 @@ public class Enemy : MonoBehaviour
 
     IEnumerator MoveSquare()
     {
-        yield return new WaitForEndOfFrame();
+        for (; ; )
+        {
+            // left
+            for (int i = 0; i < 25; i++)
+            {
+                transform.position += Vector3.left * speed * Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+
+            // down
+            for (int i = 0; i < 25; i++)
+            {
+                transform.position += Vector3.down * speed * Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+
+            // right
+            for (int i = 0; i < 25; i++)
+            {
+                transform.position += Vector3.right * speed * Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+
+            // up
+            for (int i = 0; i < 25; i++)
+            {
+                transform.position += Vector3.up * speed * Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+        }
     }
 }
