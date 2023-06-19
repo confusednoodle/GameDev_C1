@@ -5,14 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Border
+  - Special Border
+  - Laser
+  - LongLaser
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Laser
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 

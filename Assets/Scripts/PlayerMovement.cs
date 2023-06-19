@@ -10,13 +10,14 @@ public class PlayerMovement : MonoBehaviour
     //movement
     [SerializeField] float speed = 5f;
 
-    //single laser 
+    //single laser
     public LaserBehaviour laserPrefab;
+    [SerializeField] LongLaserBehaviour longLaserPrefab;
     public Transform spawnPosition;
     public AudioSource laserSound;
     [SerializeField] float fireRate = 0.125f;
 
-    //triple laser 
+    //triple laser
     public Transform spawnPosition1;
     public Transform spawnPosition2;
     public Transform spawnPosition3;
@@ -28,9 +29,10 @@ public class PlayerMovement : MonoBehaviour
     bool firstRound = true;
 
     //special attack (2)
-
-    public Transform spawnLaserBomb;
-    public AudioSource laserBombSound;
+    public Transform longSpawnPosition;
+    public AudioSource longLaserSound;
+    [SerializeField] Collider2D collider1;
+    [SerializeField] Collider2D collider2;
 
     private void Start()
     {
@@ -55,13 +57,22 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //triple laser
-        if (Input.GetButtonDown("TripleLaser") && !active)
+        if (!active)
         {
-            TripleLaserSound.Play();
-            Instantiate(laserPrefab, spawnPosition1.position, transform.rotation);
-            Instantiate(laserPrefab, spawnPosition2.position, transform.rotation);
-            Instantiate(laserPrefab, spawnPosition3.position, transform.rotation);
-            active = true;
+            if (Input.GetButtonDown("TripleLaser"))
+            {
+                TripleLaserSound.Play();
+                Instantiate(laserPrefab, spawnPosition1.position, transform.rotation);
+                Instantiate(laserPrefab, spawnPosition2.position, transform.rotation);
+                Instantiate(laserPrefab, spawnPosition3.position, transform.rotation);
+                active = true;
+            }
+            else if (Input.GetButtonDown("LongLaser"))
+            {
+                longLaserSound.Play();
+                Instantiate(longLaserPrefab, longSpawnPosition.position, transform.rotation);
+                active = true;
+            }
         }
         else if (active)
         {
@@ -81,12 +92,6 @@ public class PlayerMovement : MonoBehaviour
                 firstRound = true;
             }
         }
-
-        /*if (Input.GetButtonDown("2"))
-        {
-            laserBombSound.Play();
-            Instantiate(laserPrefab, spawnPosition.position, transform.rotation);
-        }*/
     }
 
     void Shoot()
