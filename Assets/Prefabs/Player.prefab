@@ -171,10 +171,13 @@ MonoBehaviour:
   longLaserPrefab: {fileID: 2159463886199344565, guid: d58372fcf23b2934894bc98529268d09, type: 3}
   spawnPosition: {fileID: 5545623125286382706}
   laserSound: {fileID: 5545623125268865782}
+  fireRate: 0.125
   spawnPosition1: {fileID: 5545623124751350139}
   spawnPosition2: {fileID: 5545623124580460105}
   spawnPosition3: {fileID: 5545623125761241188}
   TripleLaserSound: {fileID: 5545623125268865783}
+  cooldown: 0.8
+  cool: {fileID: 0}
   longSpawnPosition: {fileID: 5545623125286382706}
   longLaserSound: {fileID: 5545623125268865784}
   collider1: {fileID: 5545623125268865780}
@@ -189,7 +192,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.006096601, y: -0.006397723}

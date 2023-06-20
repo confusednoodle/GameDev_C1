@@ -47,7 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level: 1
   Type: 0
-  speed: 5
+  Speed: 5
+  AttackCooldown: 1
   EasySpriteUpAndDown: {fileID: 21300000, guid: bcaad0dc16ed3ed4bb057c64517a7b87, type: 3}
   EasyMediumSpriteUpAndDown: {fileID: 21300000, guid: e461c77260e3f2e45aa9f2c63e19e1ee, type: 3}
   MediumHardSpriteUpAndDown: {fileID: 21300000, guid: 55b571c3f4a07b0419aeed1890966359, type: 3}
@@ -65,6 +66,7 @@ MonoBehaviour:
   BossSpriteHourglass: {fileID: 21300000, guid: 5f717c6b67ca8184f8f2f3e26aebed0b, type: 3}
   HealthMultiplier: 1
   SRenderer: {fileID: -1952838099488069361}
+  EnemyLaserPrefab: {fileID: -7162703308677864386, guid: 876d9395b75148e66bae9f8dc7175607, type: 3}
 --- !u!212 &-1952838099488069361
 SpriteRenderer:
   m_ObjectHideFlags: 0
