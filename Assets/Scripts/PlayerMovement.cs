@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     //movement
     [SerializeField] float speed = 5f;
-    [SerializeField] int Health = 5;
+    [Space]
 
     //single laser
     public LaserBehaviour laserPrefab;
@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform spawnPosition;
     public AudioSource laserSound;
     [SerializeField] float fireRate = 0.125f;
+    [Space]
 
     //triple laser
     public Transform spawnPosition1;
@@ -28,12 +29,18 @@ public class PlayerMovement : MonoBehaviour
     float timer;
     [SerializeField] Image cool;
     bool firstRound = true;
+    [Space]
 
     //special attack (2)
     public Transform longSpawnPosition;
     public AudioSource longLaserSound;
     [SerializeField] Collider2D collider1;
     [SerializeField] Collider2D collider2;
+    [Space]
+
+    // Destruction
+    [SerializeField] AudioSource DestructionSound;
+    [SerializeField] AudioSource GameMusicSound;
 
     private void Start()
     {
@@ -105,8 +112,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (col.gameObject.tag == "EnemyLaser")
         {
-            Debug.Log(Health);
-            Health -= 1;
+            DestructionSound.Play();
             Destroy(col.gameObject);
         }
     }
