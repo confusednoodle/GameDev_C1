@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 132079094}
   - component: {fileID: 132079096}
   - component: {fileID: 132079095}
+  - component: {fileID: 132079097}
   m_Layer: 0
   m_Name: Left
   m_TagString: Border
@@ -187,7 +188,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.007852554, y: -4.260479}
@@ -203,6 +204,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 17.787739, y: 1.457912}
   m_EdgeRadius: 0
+--- !u!114 &132079097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132079093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ec291d9557b0447b7ed380ae924d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isForLongLaser: 0
 --- !u!1 &241565978
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +541,14 @@ PrefabInstance:
     - target: {fileID: -4528872260542679718, guid: ce55d25161e9b10628bc50e8d505d392, type: 3}
       propertyPath: speed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 231437808332818712, guid: ce55d25161e9b10628bc50e8d505d392, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368529637613652290, guid: ce55d25161e9b10628bc50e8d505d392, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4061493005132887013, guid: ce55d25161e9b10628bc50e8d505d392, type: 3}
       propertyPath: m_Name
@@ -1007,6 +1029,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6059195635749288471, guid: cc5aefc7bac891c40bb27474474fb99b, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5545623125268865776, guid: cc5aefc7bac891c40bb27474474fb99b, type: 3}
       propertyPath: m_Name
       value: Player

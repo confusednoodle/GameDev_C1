@@ -8,7 +8,7 @@ public class BorderBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Laser")
+        if (collision.gameObject.tag == "Laser" || collision.gameObject.tag == "EnemyLaser")
         {
             Destroy(collision.gameObject);
         }

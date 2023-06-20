@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /// The enemy level. It equates to the base hitpoints that get multiplied later.
 enum EnemyLevel
@@ -50,8 +50,11 @@ public class Enemy : MonoBehaviour
     [Space]
     [SerializeField] SpriteRenderer SRenderer;
     [SerializeField] EnemyLaser EnemyLaserPrefab;
+    [SerializeField] TextMesh HealthLabel;
+    [SerializeField] AudioSource DestructionAudio;
 
     int health = 0;
+    bool destroyed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -139,6 +142,18 @@ public class Enemy : MonoBehaviour
         }
 
         StartCoroutine(Attack());
+    }
+
+    void Update()
+    {
+        if (health >= 0) { HealthLabel.text = health.ToString(); } else { HealthLabel.text = "0"; };
+
+        if (health <= 0 && !destroyed)
+        {
+            destroyed = true;
+            StopAllCoroutines();
+            StartCoroutine(DestroyEnemy());
+        }
     }
 
     IEnumerator MoveUpAndDown()
@@ -241,6 +256,21 @@ public class Enemy : MonoBehaviour
         {
             Instantiate(EnemyLaserPrefab, transform.position + Vector3.left, Quaternion.Euler(0, 0, 90));
             yield return new WaitForSeconds(AttackCooldown);
+        }
+    }
+
+    IEnumerator DestroyEnemy()
+    {
+        DestructionAudio.Play();
+        yield return new WaitForSeconds(1f);
+        Destroy(this.gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Laser" || col.gameObject.tag == "LongLaser")
+        {
+            health -= 1;
         }
     }
 }
