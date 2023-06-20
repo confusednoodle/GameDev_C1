@@ -52,7 +52,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] EnemyLaser EnemyLaserPrefab;
 
     int health = 0;
-    bool moving = false;
 
     // Start is called before the first frame update
     void Start()

@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     //movement
     [SerializeField] float speed = 5f;
+    [SerializeField] int Health = 5;
 
     //single laser
     public LaserBehaviour laserPrefab;
@@ -98,5 +99,15 @@ public class PlayerMovement : MonoBehaviour
     {
         laserSound.Play();
         Instantiate(laserPrefab, spawnPosition.position, transform.rotation);
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "EnemyLaser")
+        {
+            Debug.Log(Health);
+            Health -= 1;
+            Destroy(col.gameObject);
+        }
     }
 }
