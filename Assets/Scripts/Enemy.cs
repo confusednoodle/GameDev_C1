@@ -25,7 +25,8 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] EnemyLevel Level;
     [SerializeField] EnemyType Type;
-    [SerializeField] int speed;
+    [SerializeField] int Speed = 5;
+    [SerializeField] float AttackCooldown = 0.5f;
     [Space(10)]
     [SerializeField] Sprite EasySpriteUpAndDown;
     [SerializeField] Sprite EasyMediumSpriteUpAndDown;
@@ -48,9 +49,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] int HealthMultiplier;
     [Space]
     [SerializeField] SpriteRenderer SRenderer;
+    [SerializeField] EnemyLaser EnemyLaserPrefab;
 
     int health = 0;
-    bool moving = false;
 
     // Start is called before the first frame update
     void Start()
@@ -136,6 +137,8 @@ public class Enemy : MonoBehaviour
                 Debug.LogError("Please select an enemy type :)");
                 break;
         }
+
+        StartCoroutine(Attack());
     }
 
     IEnumerator MoveUpAndDown()
@@ -145,14 +148,14 @@ public class Enemy : MonoBehaviour
             // Down
             for (int i = 0; i < 50; i++)
             {
-                transform.position += Vector3.down * speed * Time.deltaTime;
+                transform.position += Vector3.down * Speed * Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
 
             // Up
             for (int i = 0; i < 50; i++)
             {
-                transform.position += Vector3.up * speed * Time.deltaTime;
+                transform.position += Vector3.up * Speed * Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
         }
@@ -167,7 +170,7 @@ public class Enemy : MonoBehaviour
             // left
             for (int i = 0; i < 25; i++)
             {
-                transform.position += Vector3.left * speed * Time.deltaTime;
+                transform.position += Vector3.left * Speed * Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
 
@@ -175,7 +178,7 @@ public class Enemy : MonoBehaviour
             float newX = transform.position.x;
             while (newX < startX)
             {
-                transform.position += (Vector3.down + Vector3.right) * speed * Time.deltaTime;
+                transform.position += (Vector3.down + Vector3.right) * Speed * Time.deltaTime;
                 newX = transform.position.x;
                 yield return new WaitForEndOfFrame();
             }
@@ -183,7 +186,7 @@ public class Enemy : MonoBehaviour
             // left again
             for (int i = 0; i < 25; i++)
             {
-                transform.position += Vector3.left * speed * Time.deltaTime;
+                transform.position += Vector3.left * Speed * Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
 
@@ -191,7 +194,7 @@ public class Enemy : MonoBehaviour
             newX = transform.position.x;
             while (newX < startX)
             {
-                transform.position += (Vector3.up + Vector3.right) * speed * Time.deltaTime;
+                transform.position += (Vector3.up + Vector3.right) * Speed * Time.deltaTime;
                 newX = transform.position.x;
                 yield return new WaitForEndOfFrame();
             }
@@ -205,30 +208,39 @@ public class Enemy : MonoBehaviour
             // left
             for (int i = 0; i < 25; i++)
             {
-                transform.position += Vector3.left * speed * Time.deltaTime;
+                transform.position += Vector3.left * Speed * Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
 
             // down
             for (int i = 0; i < 25; i++)
             {
-                transform.position += Vector3.down * speed * Time.deltaTime;
+                transform.position += Vector3.down * Speed * Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
 
             // right
             for (int i = 0; i < 25; i++)
             {
-                transform.position += Vector3.right * speed * Time.deltaTime;
+                transform.position += Vector3.right * Speed * Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
 
             // up
             for (int i = 0; i < 25; i++)
             {
-                transform.position += Vector3.up * speed * Time.deltaTime;
+                transform.position += Vector3.up * Speed * Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
+        }
+    }
+
+    IEnumerator Attack()
+    {
+        for (; ; )
+        {
+            Instantiate(EnemyLaserPrefab, transform.position + Vector3.left, Quaternion.Euler(0, 0, 90));
+            yield return new WaitForSeconds(AttackCooldown);
         }
     }
 }

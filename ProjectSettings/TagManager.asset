@@ -8,6 +8,7 @@ TagManager:
   - Special Border
   - Laser
   - LongLaser
+  - EnemyLaser
   layers:
   - Default
   - TransparentFX
