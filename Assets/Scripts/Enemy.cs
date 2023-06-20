@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /// The enemy level. It equates to the base hitpoints that get multiplied later.
 enum EnemyLevel
@@ -50,6 +50,7 @@ public class Enemy : MonoBehaviour
     [Space]
     [SerializeField] SpriteRenderer SRenderer;
     [SerializeField] EnemyLaser EnemyLaserPrefab;
+    [SerializeField] TextMesh HealthLabel;
 
     int health = 0;
 
@@ -139,6 +140,11 @@ public class Enemy : MonoBehaviour
         }
 
         StartCoroutine(Attack());
+    }
+
+    void Update()
+    {
+        HealthLabel.text = health.ToString();
     }
 
     IEnumerator MoveUpAndDown()
@@ -241,6 +247,14 @@ public class Enemy : MonoBehaviour
         {
             Instantiate(EnemyLaserPrefab, transform.position + Vector3.left, Quaternion.Euler(0, 0, 90));
             yield return new WaitForSeconds(AttackCooldown);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Laser" || col.gameObject.tag == "LongLaser")
+        {
+            health -= 1;
         }
     }
 }
