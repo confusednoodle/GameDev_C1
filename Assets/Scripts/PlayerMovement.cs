@@ -91,6 +91,16 @@ public class PlayerMovement : MonoBehaviour
                 Instantiate(longLaserPrefab, longSpawnPosition.position, transform.rotation);
                 active = true;
             }
+            else if (Input.GetButtonDown("AoE"))
+            {
+                TripleLaserSound.Play();
+                for (int i = 0; i < 19; i++)
+                {
+                     Quaternion laserRot = Quaternion.Euler(0f, 0f, i*-10f);
+                    Instantiate(laserPrefab, spawnPosition.position, laserRot);
+                }
+                active = true;
+            }
         }
         else if (active)
         {
