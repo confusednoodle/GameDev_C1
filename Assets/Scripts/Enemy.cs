@@ -27,7 +27,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] EnemyType Type;
     [SerializeField] int Speed = 5;
     [SerializeField] float AttackCooldown = 0.5f;
+    [SerializeField] int HealthMultiplier;
     [Space(10)]
+    #region  INTERNAL_VARIABLES
     [SerializeField] Sprite EasySpriteUpAndDown;
     [SerializeField] Sprite EasyMediumSpriteUpAndDown;
     [SerializeField] Sprite MediumHardSpriteUpAndDown;
@@ -46,8 +48,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] Sprite HardSpriteHourglass;
     [SerializeField] Sprite BossSpriteHourglass;
     [Space]
-    [SerializeField] int HealthMultiplier;
-    [Space]
     [SerializeField] SpriteRenderer SRenderer;
     [SerializeField] EnemyLaser EnemyLaserPrefab;
     [SerializeField] TextMesh HealthLabel;
@@ -55,12 +55,14 @@ public class Enemy : MonoBehaviour
 
     int health = 0;
     bool destroyed = false;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
         health = (int)Level * HealthMultiplier;
 
+        #region ASSIGN_TYPE
         // assign expected sprite to game object
         switch (Type)
         {
@@ -140,6 +142,7 @@ public class Enemy : MonoBehaviour
                 Debug.LogError("Please select an enemy type :)");
                 break;
         }
+        #endregion
 
         StartCoroutine(Attack());
     }
