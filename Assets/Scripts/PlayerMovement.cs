@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
 {
     //movement
     [SerializeField] float speed = 5f;
+    [SerializeField] Transform TopBorder;
+    [SerializeField] Transform BottomBorder;
     [Space]
 
     //single laser
@@ -52,7 +54,15 @@ public class PlayerMovement : MonoBehaviour
         //movement
         float verticalMovement = Input.GetAxisRaw("Vertical");
         Vector3 movement = Vector3.up * verticalMovement * speed * Time.deltaTime;
-        transform.position += movement;
+
+        if (transform.position.y > BottomBorder.position.y && verticalMovement != 1)
+        {
+            transform.position += movement;
+        }
+        else if (transform.position.y < TopBorder.position.y && verticalMovement != -1)
+        {
+            transform.position += movement;
+        }
 
         //single laser
         if (Input.GetButtonDown("Laser"))
