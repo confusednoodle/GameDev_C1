@@ -9,7 +9,7 @@ public class WaveHandler : MonoBehaviour
         "SampleScene",
         "Wave2",
         "Wave3",
-         "Wave4"
+        "Wave4"
     };
 
     static int waveCtr = 0;
