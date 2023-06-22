@@ -8,7 +8,8 @@ public class WaveHandler : MonoBehaviour
     static string[] SceneNames = {
         "SampleScene",
         "Wave2",
-        "Wave3"
+        "Wave3",
+         "Wave4"
     };
 
     static int waveCtr = 0;
