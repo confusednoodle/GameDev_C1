@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Wave2.unity
     guid: 4556bd429a47433e3b73ef9f83387879
+  - enabled: 1
+    path: Assets/Scenes/Wave3.unity
+    guid: 96898bed41817d7888fc85bdd72c5d74
   m_configObjects: {}
