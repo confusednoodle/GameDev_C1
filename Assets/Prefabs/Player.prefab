@@ -272,6 +272,7 @@ MonoBehaviour:
   collider2: {fileID: 2159463886199344564, guid: d58372fcf23b2934894bc98529268d09, type: 3}
   DestructionSound: {fileID: -6059195635749288471}
   GameMusicSound: {fileID: 0}
+  HaloContainer: {fileID: 1544324073300266311}
 --- !u!70 &5545623125268865780
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

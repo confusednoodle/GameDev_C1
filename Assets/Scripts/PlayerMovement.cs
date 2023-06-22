@@ -43,6 +43,10 @@ public class PlayerMovement : MonoBehaviour
     // Destruction
     [SerializeField] AudioSource DestructionSound;
     [SerializeField] AudioSource GameMusicSound;
+    // GodMode
+    [SerializeField] GameObject HaloContainer;
+
+    bool godMode = false;
 
     private void Start()
     {
@@ -51,6 +55,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // check for god mode activation/deactivation
+        if (Input.GetButtonDown("GodMode"))
+        {
+            HaloContainer.SetActive(!godMode);
+            godMode = !godMode;
+        }
+
         //movement
         float verticalMovement = Input.GetAxisRaw("Vertical");
         Vector3 movement = Vector3.up * verticalMovement * speed * Time.deltaTime;
@@ -96,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
                 TripleLaserSound.Play();
                 for (int i = 0; i < 19; i++)
                 {
-                     Quaternion laserRot = Quaternion.Euler(0f, 0f, i*-10f);
+                    Quaternion laserRot = Quaternion.Euler(0f, 0f, i * -10f);
                     Instantiate(laserPrefab, spawnPosition.position, laserRot);
                 }
                 active = true;
@@ -130,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "EnemyLaser")
+        if (col.gameObject.tag == "EnemyLaser" && !godMode)
         {
             DestructionSound.Play();
             Destroy(col.gameObject);
