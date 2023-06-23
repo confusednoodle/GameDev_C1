@@ -11,6 +11,7 @@ public class Boss10Behaviour : MonoBehaviour
     [Space]
     // Attacks
     [SerializeField] EnemyLaser EnemyLaserPrefab;
+    [SerializeField] LongLaserBehaviour EnemyLongLaserPrefab;
     [Space]
     // Localization
     [SerializeField] Transform SingleLaserUp;
@@ -58,7 +59,9 @@ public class Boss10Behaviour : MonoBehaviour
     {
         for (; ; )
         {
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(TimeBetweenLongLasers);
+            Instantiate(EnemyLongLaserPrefab, LongLaserUp.position, Quaternion.Euler(0, 0, 90));
+            Instantiate(EnemyLongLaserPrefab, LongLaserDown.position, Quaternion.Euler(0, 0, 90));
         }
     }
 

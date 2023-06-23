@@ -9,6 +9,7 @@ TagManager:
   - Laser
   - LongLaser
   - EnemyLaser
+  - EnemyLongLaser
   layers:
   - Default
   - TransparentFX

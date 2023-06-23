@@ -330,6 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isForLongLaser: 1
+  isForLongEnemyLaser: 0
 --- !u!50 &189280118
 Rigidbody2D:
   serializedVersion: 4
@@ -581,6 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isForLongLaser: 0
+  isForLongEnemyLaser: 0
 --- !u!61 &457564857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5629,6 +5631,7 @@ Transform:
   - {fileID: 189280116}
   - {fileID: 1675590656}
   - {fileID: 1061955389}
+  - {fileID: 1861365260}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5864,6 +5867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isForLongLaser: 0
+  isForLongEnemyLaser: 0
 --- !u!50 &1173244147
 Rigidbody2D:
   serializedVersion: 4
@@ -6419,10 +6423,11 @@ MonoBehaviour:
   TimeBetweenLongLasers: 5
   Health: 20
   EnemyLaserPrefab: {fileID: -7162703308677864386, guid: 876d9395b75148e66bae9f8dc7175607, type: 3}
+  EnemyLongLaserPrefab: {fileID: 2159463886199344565, guid: 025d94b88902fb338885461ddad17ac0, type: 3}
   SingleLaserUp: {fileID: 1285279004}
   SingleLaserDown: {fileID: 633198771}
-  LongLaserUp: {fileID: 0}
-  LongLaserDown: {fileID: 0}
+  LongLaserUp: {fileID: 140950963}
+  LongLaserDown: {fileID: 969855669}
   Player: {fileID: 628068233}
   PlayerPosThreshold: 1
   HealthLabel: {fileID: 421909099}
@@ -6672,6 +6677,101 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a1c4c0a276d19cb88b24f02ddf5d03f, type: 3}
+--- !u!1 &1861365259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1861365260}
+  - component: {fileID: 1861365263}
+  - component: {fileID: 1861365262}
+  - component: {fileID: 1861365261}
+  m_Layer: 0
+  m_Name: Left (1)
+  m_TagString: Border
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1861365260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861365259}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -35.66, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 924790501}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!114 &1861365261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861365259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ec291d9557b0447b7ed380ae924d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isForLongLaser: 0
+  isForLongEnemyLaser: 1
+--- !u!50 &1861365262
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861365259}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &1861365263
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861365259}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.007852554, y: -4.260479}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 17.787739, y: 1.457912}
+  m_EdgeRadius: 0
 --- !u!1 &2117766673
 GameObject:
   m_ObjectHideFlags: 0
