@@ -37,6 +37,9 @@ EditorBuildSettings:
     guid: 80aa3a3a7b72bb84a99feae43c932b0c
   - enabled: 1
     path: Assets/Scenes/Wave10Boss.unity
+    guid: 65323a1a95f40d041b5248fc218e8821
+  - enabled: 1
+    path: Assets/Scenes/Wave15Boss.unity
     guid: 10ff2d4e6cfb4b202adc8863a50a5675
   - enabled: 1
     path: Assets/Scenes/Wave11.unity
