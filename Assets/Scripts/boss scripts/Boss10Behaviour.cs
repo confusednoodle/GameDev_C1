@@ -61,4 +61,12 @@ public class Boss10Behaviour : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Laser" || col.gameObject.tag == "LongLaser")
+        {
+            Health -= 1;
+        }
+    }
 }
