@@ -4,9 +4,21 @@ using UnityEngine;
 
 public class Boss10Behaviour : MonoBehaviour
 {
+    // Movement
     [SerializeField] float Speed = 3f;
     [SerializeField] float TimeBetweenShots = .75f;
     [SerializeField] float TimeBetweenLongLasers = 5f;
+    [Space]
+    // Attacks
+    [SerializeField] EnemyLaser EnemyLaserPrefab;
+    [Space]
+    // Localization
+    [SerializeField] Transform SingleLaserUp;
+    [SerializeField] Transform SingleLaserDown;
+    [SerializeField] Transform LongLaserUp;
+    [SerializeField] Transform LongLaserDown;
+    // Other Objects
+    [Space]
     [SerializeField] Transform Player;
     [SerializeField] float PlayerPosThreshold = 0.5f;
 
@@ -32,7 +44,10 @@ public class Boss10Behaviour : MonoBehaviour
     {
         for (; ; )
         {
-            yield return new WaitForEndOfFrame();
+            Instantiate(EnemyLaserPrefab, SingleLaserUp.position, Quaternion.Euler(0, 0, 90));
+            yield return new WaitForSeconds(TimeBetweenShots);
+            Instantiate(EnemyLaserPrefab, SingleLaserDown.position, Quaternion.Euler(0, 0, 90));
+            yield return new WaitForSeconds(TimeBetweenShots);
         }
     }
 

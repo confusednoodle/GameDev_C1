@@ -6318,6 +6318,11 @@ MonoBehaviour:
   Speed: 3
   TimeBetweenShots: 0.75
   TimeBetweenLongLasers: 5
+  EnemyLaserPrefab: {fileID: -7162703308677864386, guid: 876d9395b75148e66bae9f8dc7175607, type: 3}
+  SingleLaserUp: {fileID: 1285279004}
+  SingleLaserDown: {fileID: 633198771}
+  LongLaserUp: {fileID: 0}
+  LongLaserDown: {fileID: 0}
   Player: {fileID: 628068233}
   PlayerPosThreshold: 1
 --- !u!1001 &1640052672
