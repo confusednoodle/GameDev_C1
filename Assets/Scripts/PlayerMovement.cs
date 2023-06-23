@@ -176,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "EnemyLaser" && !godMode)
+        if ((col.gameObject.tag == "EnemyLaser" || col.gameObject.tag == "EnemyLongLaser") && !godMode)
         {
             dontMove = true;
             StartCoroutine(BgMusicHandler.FadeOutBgMusic());

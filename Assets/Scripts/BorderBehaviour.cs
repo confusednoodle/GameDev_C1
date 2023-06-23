@@ -5,6 +5,7 @@ using UnityEngine;
 public class BorderBehaviour : MonoBehaviour
 {
     [SerializeField] bool isForLongLaser = false;
+    [SerializeField] bool isForLongEnemyLaser = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,6 +15,11 @@ public class BorderBehaviour : MonoBehaviour
         }
 
         if (collision.gameObject.tag == "LongLaser" && isForLongLaser)
+        {
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.tag == "EnemyLongLaser" && isForLongEnemyLaser)
         {
             Destroy(collision.gameObject);
         }
