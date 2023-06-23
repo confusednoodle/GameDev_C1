@@ -40,6 +40,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Collider2D collider2;
     [Space]
 
+    // special attack (4)
+    [SerializeField] SinCosBulletBehaviour SinCosBulletPrefab;
+    [Space]
+
     // Destruction
     [SerializeField] AudioSource DestructionSound;
     [SerializeField] AudioSource GameMusicSound;
@@ -47,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject HaloContainer;
 
     bool godMode = false;
+    bool dontMove = false;
 
     private void Start()
     {
@@ -66,13 +71,16 @@ public class PlayerMovement : MonoBehaviour
         float verticalMovement = Input.GetAxisRaw("Vertical");
         Vector3 movement = Vector3.up * verticalMovement * speed * Time.deltaTime;
 
-        if (transform.position.y > BottomBorder.position.y && verticalMovement != 1)
+        if (!dontMove)
         {
-            transform.position += movement;
-        }
-        else if (transform.position.y < TopBorder.position.y && verticalMovement != -1)
-        {
-            transform.position += movement;
+            if (transform.position.y > BottomBorder.position.y && verticalMovement != 1)
+            {
+                transform.position += movement;
+            }
+            else if (transform.position.y < TopBorder.position.y && verticalMovement != -1)
+            {
+                transform.position += movement;
+            }
         }
 
         //single laser
@@ -85,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
             CancelInvoke("Shoot");
         }
 
-        //triple laser
+        // special attacks
         if (!active)
         {
             if (Input.GetButtonDown("TripleLaser"))
@@ -112,6 +120,11 @@ public class PlayerMovement : MonoBehaviour
                 }
                 active = true;
             }
+            else if (Input.GetButtonDown("SinCosStream"))
+            {
+                dontMove = true;
+                StartCoroutine(SinCosStream());
+            }
         }
         else if (active)
         {
@@ -137,6 +150,19 @@ public class PlayerMovement : MonoBehaviour
     {
         laserSound.Play();
         Instantiate(laserPrefab, spawnPosition.position, transform.rotation);
+    }
+
+    IEnumerator SinCosStream()
+    {
+        for (int i = 0; i < 40; i++)
+        {
+            SinCosBulletPrefab.IsCos = false;
+            Instantiate(SinCosBulletPrefab, spawnPosition.position, Quaternion.identity);
+            SinCosBulletPrefab.IsCos = true;
+            Instantiate(SinCosBulletPrefab, spawnPosition.position, Quaternion.identity);
+            yield return new WaitForSeconds(3 / 40);
+        }
+        dontMove = false;
     }
 
     void OnTriggerEnter2D(Collider2D col)

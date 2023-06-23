@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 4551604675840862210}
   - component: {fileID: 8150178222056907313}
   - component: {fileID: 7230247285523543633}
-  m_Layer: 0
+  - component: {fileID: 6799093985300680999}
+  - component: {fileID: -1312632571858328053}
+  m_Layer: 3
   m_Name: SinCosBullet
   m_TagString: Laser
   m_Icon: {fileID: 0}
@@ -74,15 +76,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e735200aec5936b479617c554aebaa1a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.48, y: 0.46}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &7230247285523543633
@@ -98,8 +100,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 5
-  Amplitude: 1
-  IsCos: 0
+  Amplitude: 5
+  IsCos: 1
   SinSprite: {fileID: 21300000, guid: e735200aec5936b479617c554aebaa1a, type: 3}
   CosSprite: {fileID: 21300000, guid: 7d04b9780c6f0be4cbaff887908afbaf, type: 3}
   SpriteRenderer: {fileID: 8150178222056907313}
+--- !u!70 &6799093985300680999
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113977697443731642}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 0.5}
+  m_Direction: 0
+--- !u!50 &-1312632571858328053
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113977697443731642}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
