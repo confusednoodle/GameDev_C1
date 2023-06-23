@@ -1,13 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Boss10Behaviour : MonoBehaviour
 {
-    // Movement
+    // General
     [SerializeField] float Speed = 3f;
     [SerializeField] float TimeBetweenShots = .75f;
     [SerializeField] float TimeBetweenLongLasers = 5f;
+    [SerializeField] int Health = 20;
     [Space]
     // Attacks
     [SerializeField] EnemyLaser EnemyLaserPrefab;
@@ -21,6 +21,7 @@ public class Boss10Behaviour : MonoBehaviour
     [Space]
     [SerializeField] Transform Player;
     [SerializeField] float PlayerPosThreshold = 0.5f;
+    [SerializeField] TextMesh HealthLabel;
 
     void Start()
     {
@@ -30,6 +31,8 @@ public class Boss10Behaviour : MonoBehaviour
 
     void Update()
     {
+        if (Health >= 0) { HealthLabel.text = Health.ToString(); } else { HealthLabel.text = ""; };
+
         if (Player.position.y - PlayerPosThreshold > transform.position.y)
         {
             transform.position += Vector3.up * Speed * Time.deltaTime;
