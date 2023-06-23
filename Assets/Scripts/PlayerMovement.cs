@@ -178,6 +178,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (col.gameObject.tag == "EnemyLaser" && !godMode)
         {
+            dontMove = true;
             StartCoroutine(BgMusicHandler.FadeOutBgMusic());
             StartCoroutine(ReturnToMainMenu());
             SpriteRenderer.enabled = false;
