@@ -6172,10 +6172,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 3
-  TimeBetweenShots: 0.75
-  TimeBetweenLongLasers: 5
-  RadianceCooldown: 10
-  Health: 20
+  TimeBetweenShots: 1
+  TimeBetweenLongLasers: 10
+  RadianceCooldown: 15
+  Health: 50
   EnemyLaserPrefab: {fileID: -7162703308677864386, guid: 876d9395b75148e66bae9f8dc7175607, type: 3}
   EnemyLongLaserPrefab: {fileID: 2159463886199344565, guid: 025d94b88902fb338885461ddad17ac0, type: 3}
   SingleLaserUp: {fileID: 1056643336}
@@ -11532,7 +11532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861365259}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -35.66, y: 0, z: 0}
+  m_LocalPosition: {x: -20, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
