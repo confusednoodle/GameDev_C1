@@ -14,6 +14,16 @@ public class BgMusicHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        BgMusic.volume = SharedState.BgMusicVolume;
         SharedState.BgMusicPosition = BgMusic.time;
+    }
+
+    public static IEnumerator FadeOutBgMusic()
+    {
+        while (SharedState.BgMusicVolume > 0)
+        {
+            SharedState.BgMusicVolume -= 0.05f;
+            yield return new WaitForSeconds(0.075f);
+        }
     }
 }

@@ -143,6 +143,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (col.gameObject.tag == "EnemyLaser" && !godMode)
         {
+            StartCoroutine(BgMusicHandler.FadeOutBgMusic());
             DestructionSound.Play();
             Destroy(col.gameObject);
         }

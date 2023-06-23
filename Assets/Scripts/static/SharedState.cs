@@ -5,4 +5,5 @@ using UnityEngine;
 public class SharedState : MonoBehaviour
 {
     public static float BgMusicPosition = 0f;
+    public static float BgMusicVolume = 1f;
 }
