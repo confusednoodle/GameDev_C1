@@ -277,6 +277,7 @@ MonoBehaviour:
   GameMusicSound: {fileID: 0}
   SpriteRenderer: {fileID: 5545623125268865778}
   ParticleSystem: {fileID: -1907648218480618893}
+  CapsuleCollider2D: {fileID: 5545623125268865780}
   HaloContainer: {fileID: 1544324073300266311}
 --- !u!70 &5545623125268865780
 CapsuleCollider2D:

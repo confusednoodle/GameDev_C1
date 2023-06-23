@@ -47,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] AudioSource GameMusicSound;
     [SerializeField] SpriteRenderer SpriteRenderer;
     [SerializeField] ParticleSystem ParticleSystem;
+    [SerializeField] CapsuleCollider2D CapsuleCollider2D;
+
     // GodMode
     [SerializeField] GameObject HaloContainer;
 
@@ -179,6 +181,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(BgMusicHandler.FadeOutBgMusic());
             StartCoroutine(ReturnToMainMenu());
             SpriteRenderer.enabled = false;
+            CapsuleCollider2D.enabled = false;
             ParticleSystem.Play();
             DestructionSound.Play();
             Destroy(col.gameObject);
