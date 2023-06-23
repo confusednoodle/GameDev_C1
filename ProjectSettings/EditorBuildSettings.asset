@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Wave6.unity
     guid: 2c2a797e771817c1fa63cc27b1b7e858
+  - enabled: 1
+    path: Assets/Scenes/Wave10Boss.unity
+    guid: 10ff2d4e6cfb4b202adc8863a50a5675
   m_configObjects: {}

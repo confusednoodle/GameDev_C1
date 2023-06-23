@@ -11,7 +11,8 @@ public class WaveHandler : MonoBehaviour
         "Wave3",
         "Wave4",
         "Wave5Boss",
-        "Wave6"
+        "Wave6",
+        "Wave10Boss"
     };
 
     static int waveCtr = 0;
