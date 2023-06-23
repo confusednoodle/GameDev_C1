@@ -11,6 +11,8 @@ public class MainMenuHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SharedState.BgMusicPosition = 0f;
+        SharedState.BgMusicVolume = 1f;
         HighScoreText.text = "Highscore: " + PlayerPrefs.GetInt("highscore", 0).ToString();
     }
 
