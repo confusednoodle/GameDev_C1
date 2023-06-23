@@ -23,7 +23,7 @@ public class BgMusicHandler : MonoBehaviour
         while (SharedState.BgMusicVolume > 0)
         {
             SharedState.BgMusicVolume -= 0.05f;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.075f);
         }
     }
 }
