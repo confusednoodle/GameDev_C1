@@ -34,7 +34,8 @@ public class Boss15Behaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(AttackSimple());
+        StartCoroutine(AttackLongLasers());
     }
 
     // Update is called once per frame
