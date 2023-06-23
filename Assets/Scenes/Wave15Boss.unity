@@ -6184,7 +6184,15 @@ MonoBehaviour:
   Player: {fileID: 1377862930}
   PlayerPosThreshold: 0.5
   HealthLabel: {fileID: 1994933338}
-  SpriteRenderers: []
+  SpriteRenderers:
+  - {fileID: 867565818}
+  - {fileID: 1284665101}
+  - {fileID: 1056643337}
+  - {fileID: 594584509}
+  - {fileID: 1539858044}
+  - {fileID: 80462822}
+  - {fileID: 931095143}
+  - {fileID: 1440989509}
   DestroyParticleSystem: {fileID: 1426521366}
   ThrustParticleSystem: {fileID: 1284665102}
   DestructionAudio: {fileID: 1426521368}
@@ -11073,7 +11081,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -11096,7 +11104,8 @@ PolygonCollider2D:
       - {x: 1.480968, y: 0.19739506}
       - {x: -0.38034058, y: -0.14607814}
       - {x: -1.1437645, y: -0.23816904}
-      - {x: -1.6260695, y: -0.3982058}
+      - {x: -1.699507, y: -0.03659606}
+      - {x: -1.8977997, y: -0.25188962}
       - {x: -0.02403593, y: -0.6974604}
       - {x: 1.3861303, y: -2.322057}
       - {x: 0.6785531, y: -2.3287976}
