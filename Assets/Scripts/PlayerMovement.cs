@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -47,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
     // Destruction
     [SerializeField] AudioSource DestructionSound;
     [SerializeField] AudioSource GameMusicSound;
+    [SerializeField] SpriteRenderer SpriteRenderer;
+    [SerializeField] ParticleSystem ParticleSystem;
     // GodMode
     [SerializeField] GameObject HaloContainer;
 
@@ -55,6 +55,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        if (SharedState.GodMode)
+        {
+            godMode = true;
+            HaloContainer.SetActive(true);
+        }
         timer = cooldown;
     }
 
@@ -63,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         // check for god mode activation/deactivation
         if (Input.GetButtonDown("GodMode"))
         {
+            SharedState.GodMode = !SharedState.GodMode;
             HaloContainer.SetActive(!godMode);
             godMode = !godMode;
         }
@@ -171,8 +177,17 @@ public class PlayerMovement : MonoBehaviour
         if (col.gameObject.tag == "EnemyLaser" && !godMode)
         {
             StartCoroutine(BgMusicHandler.FadeOutBgMusic());
+            StartCoroutine(ReturnToMainMenu());
+            SpriteRenderer.enabled = false;
+            ParticleSystem.Play();
             DestructionSound.Play();
             Destroy(col.gameObject);
         }
+    }
+
+    IEnumerator ReturnToMainMenu()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("MainMenu");
     }
 }
