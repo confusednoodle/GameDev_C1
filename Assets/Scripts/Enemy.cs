@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] TextMesh HealthLabel;
     [SerializeField] AudioSource DestructionAudio;
     [SerializeField] SpriteRenderer SpriteRenderer;
+    [SerializeField] ParticleSystem ParticleSystem;
 
     int health = 0;
     bool destroyed = false;
@@ -268,6 +269,7 @@ public class Enemy : MonoBehaviour
         SpriteRenderer.enabled = false;
         HealthLabel.text = "";
         DestructionAudio.Play();
+        ParticleSystem.Play();
         yield return new WaitForSeconds(1f);
         Destroy(this.gameObject);
     }
