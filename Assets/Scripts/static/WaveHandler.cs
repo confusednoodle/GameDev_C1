@@ -16,6 +16,8 @@ public class WaveHandler : MonoBehaviour
 
     public static void NextWave()
     {
+        int oldScore = PlayerPrefs.GetInt("highscore", 0);
+        PlayerPrefs.SetInt("highscore", oldScore + 1);
         waveCtr += 1;
         SceneManager.LoadScene(SceneNames[waveCtr]);
     }
