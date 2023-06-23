@@ -23,6 +23,12 @@ public class Boss10Behaviour : MonoBehaviour
     [SerializeField] Transform Player;
     [SerializeField] float PlayerPosThreshold = 0.5f;
     [SerializeField] TextMesh HealthLabel;
+    [SerializeField] SpriteRenderer[] SpriteRenderers;
+    [SerializeField] ParticleSystem DestroyParticleSystem;
+    [SerializeField] ParticleSystem ThrustParticleSystem;
+    [SerializeField] AudioSource DestructionAudio;
+
+    bool destroyed = false;
 
     void Start()
     {
@@ -34,11 +40,17 @@ public class Boss10Behaviour : MonoBehaviour
     {
         if (Health >= 0) { HealthLabel.text = Health.ToString(); } else { HealthLabel.text = ""; };
 
-        if (Player.position.y - PlayerPosThreshold > transform.position.y)
+        if (Health <= 0 && !destroyed)
+        {
+            StartCoroutine(DestroyEnemy());
+            destroyed = true;
+        }
+
+        if (Player.position.y - PlayerPosThreshold > transform.position.y && Health > 0)
         {
             transform.position += Vector3.up * Speed * Time.deltaTime;
         }
-        else if (Player.position.y + PlayerPosThreshold < transform.position.y)
+        else if (Player.position.y + PlayerPosThreshold < transform.position.y && Health > 0)
         {
             transform.position += Vector3.down * Speed * Time.deltaTime;
         }
@@ -63,6 +75,20 @@ public class Boss10Behaviour : MonoBehaviour
             Instantiate(EnemyLongLaserPrefab, LongLaserUp.position, Quaternion.Euler(0, 0, 90));
             Instantiate(EnemyLongLaserPrefab, LongLaserDown.position, Quaternion.Euler(0, 0, 90));
         }
+    }
+
+    IEnumerator DestroyEnemy()
+    {
+        foreach (SpriteRenderer r in SpriteRenderers)
+        {
+            r.enabled = false;
+        }
+        HealthLabel.text = "";
+        DestructionAudio.Play();
+        ThrustParticleSystem.Stop();
+        DestroyParticleSystem.Play();
+        yield return new WaitForSeconds(1f);
+        Destroy(this.gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D col)
