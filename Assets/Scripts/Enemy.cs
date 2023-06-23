@@ -9,8 +9,6 @@ enum EnemyLevel
     EasyMedium = 3,
     MediumHard = 5,
     Hard = 10,
-
-    Boss = 100
 }
 
 /// The enemy type. This equates to the moveset.
@@ -34,19 +32,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] Sprite EasyMediumSpriteUpAndDown;
     [SerializeField] Sprite MediumHardSpriteUpAndDown;
     [SerializeField] Sprite HardSpriteUpAndDown;
-    [SerializeField] Sprite BossSpriteUpAndDown;
     [Space]
     [SerializeField] Sprite EasySpriteSquare;
     [SerializeField] Sprite EasyMediumSpriteSquare;
     [SerializeField] Sprite MediumHardSpriteSquare;
     [SerializeField] Sprite HardSpriteSquare;
-    [SerializeField] Sprite BossSpriteSquare;
     [Space]
     [SerializeField] Sprite EasySpriteHourglass;
     [SerializeField] Sprite EasyMediumSpriteHourglass;
     [SerializeField] Sprite MediumHardSpriteHourglass;
     [SerializeField] Sprite HardSpriteHourglass;
-    [SerializeField] Sprite BossSpriteHourglass;
     [Space]
     [SerializeField] SpriteRenderer SRenderer;
     [SerializeField] EnemyLaser EnemyLaserPrefab;
@@ -83,9 +78,6 @@ public class Enemy : MonoBehaviour
                     case EnemyLevel.Hard:
                         SRenderer.sprite = HardSpriteUpAndDown;
                         break;
-                    case EnemyLevel.Boss:
-                        SRenderer.sprite = BossSpriteUpAndDown;
-                        break;
                     default:
                         SRenderer.sprite = EasySpriteUpAndDown;
                         break;
@@ -107,9 +99,6 @@ public class Enemy : MonoBehaviour
                     case EnemyLevel.Hard:
                         SRenderer.sprite = HardSpriteHourglass;
                         break;
-                    case EnemyLevel.Boss:
-                        SRenderer.sprite = BossSpriteHourglass;
-                        break;
                     default:
                         SRenderer.sprite = EasySpriteHourglass;
                         break;
@@ -130,9 +119,6 @@ public class Enemy : MonoBehaviour
                         break;
                     case EnemyLevel.Hard:
                         SRenderer.sprite = HardSpriteSquare;
-                        break;
-                    case EnemyLevel.Boss:
-                        SRenderer.sprite = BossSpriteSquare;
                         break;
                     default:
                         SRenderer.sprite = EasySpriteSquare;
