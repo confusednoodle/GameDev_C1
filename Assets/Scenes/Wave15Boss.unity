@@ -6174,6 +6174,7 @@ MonoBehaviour:
   Speed: 3
   TimeBetweenShots: 0.75
   TimeBetweenLongLasers: 5
+  RadianceCooldown: 10
   Health: 20
   EnemyLaserPrefab: {fileID: -7162703308677864386, guid: 876d9395b75148e66bae9f8dc7175607, type: 3}
   EnemyLongLaserPrefab: {fileID: 2159463886199344565, guid: 025d94b88902fb338885461ddad17ac0, type: 3}
@@ -6196,6 +6197,7 @@ MonoBehaviour:
   DestroyParticleSystem: {fileID: 1426521366}
   ThrustParticleSystem: {fileID: 1284665102}
   DestructionAudio: {fileID: 1426521368}
+  spawnPosition: {fileID: 1426521364}
 --- !u!198 &1426521366
 ParticleSystem:
   m_ObjectHideFlags: 0

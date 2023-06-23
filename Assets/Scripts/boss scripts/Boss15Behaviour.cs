@@ -8,7 +8,8 @@ public class Boss15Behaviour : MonoBehaviour
     [SerializeField] float Speed = 3f;
     [SerializeField] float TimeBetweenShots = .75f;
     [SerializeField] float TimeBetweenLongLasers = 5f;
-    [SerializeField] int Health = 20;
+    [SerializeField] float RadianceCooldown = 10f;
+    [SerializeField] int Health = 50;
     [Space]
     // Attacks
     [SerializeField] EnemyLaser EnemyLaserPrefab;
@@ -28,6 +29,7 @@ public class Boss15Behaviour : MonoBehaviour
     [SerializeField] ParticleSystem DestroyParticleSystem;
     [SerializeField] ParticleSystem ThrustParticleSystem;
     [SerializeField] AudioSource DestructionAudio;
+    [SerializeField] Transform spawnPosition;
 
     bool destroyed = false;
 
@@ -56,6 +58,28 @@ public class Boss15Behaviour : MonoBehaviour
         else if (Player.position.y + PlayerPosThreshold < transform.position.y && Health > 0)
         {
             transform.position += Vector3.down * Speed * Time.deltaTime;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        //Radiance Attack
+        if (RadianceCooldown > 0)
+        {
+            RadianceCooldown -= 0.1f;
+        }
+        else
+        {
+            int temp = Random.Range(0, 5);
+            for (int i = 0; i < 5; i++)
+            {
+                if (i != temp)
+                {
+                    Instantiate(EnemyLaserPrefab, new Vector3(spawnPosition.position.x, spawnPosition.position.y + i, 0f), Quaternion.Euler(0f, 0f, 90f));
+                    Instantiate(EnemyLaserPrefab, new Vector3(spawnPosition.position.x, spawnPosition.position.y - i, 0f), Quaternion.Euler(0f, 0f, 90f));
+                }
+            }
+            RadianceCooldown = 10f;
         }
     }
 
