@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
             godMode = !godMode;
         }
 
-        //movement
+        //movement)
         float verticalMovement = Input.GetAxisRaw("Vertical");
         Vector3 movement = Vector3.up * verticalMovement * speed * Time.deltaTime;
 
@@ -124,6 +124,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 dontMove = true;
                 StartCoroutine(SinCosStream());
+                active = true;
             }
         }
         else if (active)
