@@ -10,6 +10,7 @@ public class WaveHandler : MonoBehaviour
         "Wave2",
         "Wave3",
         "Wave4",
+        "Wave5Boss",
         "Wave6"
     };
 
