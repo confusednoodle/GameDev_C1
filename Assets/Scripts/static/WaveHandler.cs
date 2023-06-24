@@ -19,7 +19,8 @@ public class WaveHandler : MonoBehaviour
         "Wave11",
         "Wave12",
         "Wave13",
-        "Wave14"
+        "Wave14",
+        "Wave15Boss"
     };
 
     static int waveCtr = 0;
@@ -29,6 +30,6 @@ public class WaveHandler : MonoBehaviour
         int oldScore = PlayerPrefs.GetInt("highscore", 0);
         PlayerPrefs.SetInt("highscore", oldScore + 1);
         waveCtr += 1;
-        SceneManager.LoadScene(SceneNames[waveCtr]);
+        SceneManager.LoadScene(SceneNames[waveCtr % SceneNames.Length]);
     }
 }
