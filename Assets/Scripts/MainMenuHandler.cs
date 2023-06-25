@@ -13,6 +13,7 @@ public class MainMenuHandler : MonoBehaviour
     {
         SharedState.BgMusicPosition = 0f;
         SharedState.BgMusicVolume = 1f;
+        WaveHandler.waveCtr = 0;
         HighScoreText.text = "Highscore: " + PlayerPrefs.GetInt("highscore", 0).ToString();
     }
 
