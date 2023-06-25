@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isForLongLaser: 1
+  isForLongEnemyLaser: 0
 --- !u!50 &99412106
 Rigidbody2D:
   serializedVersion: 4
@@ -365,6 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isForLongLaser: 0
+  isForLongEnemyLaser: 0
 --- !u!61 &495427742
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -891,6 +893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isForLongLaser: 0
+  isForLongEnemyLaser: 0
 --- !u!50 &1667930037
 Rigidbody2D:
   serializedVersion: 4

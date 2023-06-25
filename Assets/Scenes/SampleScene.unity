@@ -154,7 +154,7 @@ Transform:
   - {fileID: 1064720486}
   - {fileID: 727011024}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &132079093
 GameObject:
@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isForLongLaser: 0
+  isForLongEnemyLaser: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,6 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isForLongLaser: 0
+  isForLongEnemyLaser: 0
 --- !u!4 &1064720486 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5316790811929337255, guid: ce55d25161e9b10628bc50e8d505d392, type: 3}
@@ -1172,6 +1174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isForLongLaser: 1
+  isForLongEnemyLaser: 0
 --- !u!1 &2101375086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,11 +1251,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5545623125268865779, guid: cc5aefc7bac891c40bb27474474fb99b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.07
+      value: -8.23
       objectReference: {fileID: 0}
     - target: {fileID: 5545623125268865779, guid: cc5aefc7bac891c40bb27474474fb99b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 5545623125268865779, guid: cc5aefc7bac891c40bb27474474fb99b, type: 3}
       propertyPath: m_LocalPosition.z
