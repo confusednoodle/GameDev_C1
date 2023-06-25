@@ -23,7 +23,7 @@ public class WaveHandler : MonoBehaviour
         "Wave15Boss"
     };
 
-    static int waveCtr = 0;
+    public static int waveCtr = 0;
 
     public static void NextWave()
     {
