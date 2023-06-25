@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8048b7e982180960b9c28860e644aea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
-  Amplitude: 5
+  Speed: 7
+  Amplitude: 10
   IsCos: 1
   SinSprite: {fileID: 21300000, guid: e735200aec5936b479617c554aebaa1a, type: 3}
   CosSprite: {fileID: 21300000, guid: 7d04b9780c6f0be4cbaff887908afbaf, type: 3}

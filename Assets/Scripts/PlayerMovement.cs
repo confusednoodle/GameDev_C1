@@ -163,13 +163,13 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator SinCosStream()
     {
-        for (int i = 0; i < 40; i++)
+        for (int i = 0; i < 5; i++)
         {
             SinCosBulletPrefab.IsCos = false;
             Instantiate(SinCosBulletPrefab, spawnPosition.position, Quaternion.identity);
             SinCosBulletPrefab.IsCos = true;
             Instantiate(SinCosBulletPrefab, spawnPosition.position, Quaternion.identity);
-            yield return new WaitForSeconds(3 / 40);
+            yield return new WaitForSeconds(0.2f);
         }
         dontMove = false;
     }
